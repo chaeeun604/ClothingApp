@@ -8,5 +8,5 @@ public class Bow extends Weapon {
     @Override
     public void attackMotion() {
         System.out.println("활로 쏘았다!");
-    }
+    } 
 }

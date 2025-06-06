@@ -6,7 +6,7 @@ public class Steve extends Player {
 
     public Steve() {
         super("Steve", 250, 20);  // HP 250, 공격력 20
-    }
+    }  
 
     public void useSleep() {
         if (!usedSleep) {

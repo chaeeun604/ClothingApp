@@ -8,5 +8,5 @@ public class Poison extends Weapon {
     @Override
     public void attackMotion() {
         System.out.println("독을 쏘았다!");
-    }
+    } 
 }

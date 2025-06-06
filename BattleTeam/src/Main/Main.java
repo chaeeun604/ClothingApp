@@ -50,7 +50,7 @@ public class Main {
             int j = r.nextInt(i + 1);
             Player temp = array[i];
             array[i] = array[j];
-            array[j] = temp;
+            array[j] = temp;  
         }
     }
 }

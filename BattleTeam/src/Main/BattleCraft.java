@@ -25,7 +25,7 @@ public class BattleCraft extends JFrame {
     private Steve steve;
     private Player[] monsters;
     private Player currentMonster;
-    private int monsterIndex = 0;
+    private int monsterIndex = 0;  
     private Weapon[] weapons;
     private JLabel lblSteveHp;
     private JLabel lblMonsterHp;
@@ -68,7 +68,7 @@ public class BattleCraft extends JFrame {
         contentPane.setLayout(null);
 
         // 컴포넌트 초기화 코드
-        lblSteveName = new JLabel("스티브");
+        lblSteveName = new JLabel("스티브"); 
         lblSteveName.setBounds(105, 418, 50, 15);
         contentPane.add(lblSteveName);
 
@@ -76,7 +76,7 @@ public class BattleCraft extends JFrame {
         lblSteveHp.setBounds(95, 110, 50, 15);
         contentPane.add(lblSteveHp);
 
-        lblWeapon = new JLabel("무기");
+        lblWeapon = new JLabel("무기 ");
         lblWeapon.setBounds(12, 497, 50, 15);
         contentPane.add(lblWeapon);
 

@@ -3,7 +3,7 @@ package Player;
 public class Zombie extends Player {
     public Zombie() {
         super("Zombie", 100, 10);  // HP 100, 공격력 10
-    }
+    }  
 
     @Override
     public void attack(Player target) {

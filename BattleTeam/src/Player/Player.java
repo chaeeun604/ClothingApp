@@ -13,7 +13,7 @@ public class Player {
         this.name = name;
         this.hp = hp;
         this.power = power;
-    }
+    } 
 
     public String getName() {
         return name;

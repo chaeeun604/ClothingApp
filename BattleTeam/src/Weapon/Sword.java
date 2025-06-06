@@ -8,5 +8,5 @@ public class Sword extends Weapon {
     @Override
     public void attackMotion() {
         System.out.println("검으로 베었다!");
-    }
+    } 
 }

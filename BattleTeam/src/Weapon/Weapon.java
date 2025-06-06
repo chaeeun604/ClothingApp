@@ -9,7 +9,7 @@ public abstract class Weapon {
         this.name = name;
         this.power = power;
         this.durability = durability;
-    }
+    } 
 
     public String getName() {
         return name;

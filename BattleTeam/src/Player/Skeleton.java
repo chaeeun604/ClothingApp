@@ -7,7 +7,7 @@ public class Skeleton extends Player {
         super("Skeleton", 100, 15);  // HP 100, 공격력 15
     }
 
-    @Override
+    @Override 
     public void attack(Player target) {
         if (damageReceivedCount >= 3) {  // 피해를 3번 입을 때마다 공격력 증가
             Random rand = new Random();
