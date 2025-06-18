@@ -15,7 +15,7 @@ public class Weather {
         this.temperatureLow = temperatureLow;
         this.condition = condition;
         this.precipitation = precipitation;
-    } 
+    }  
 
     public double getAverageTemp() {
         return (temperatureHigh + temperatureLow) / 2.0;
