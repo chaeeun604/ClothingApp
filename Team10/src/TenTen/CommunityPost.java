@@ -1,6 +1,6 @@
 package TenTen;
 
-import java.util.*;
+import java.util.*; 
 
 public class CommunityPost {
     private String postID;

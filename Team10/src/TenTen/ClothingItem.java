@@ -1,7 +1,7 @@
 package TenTen;
 
 import java.awt.Image;
-import java.util.*;
+import java.util.*; 
 
 public class ClothingItem {
     private String itemID;

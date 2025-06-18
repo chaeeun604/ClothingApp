@@ -1,6 +1,6 @@
 package TenTen;
 
-public class Settings {
+public class Settings { 
     private boolean notificationEnabled = true;
     private boolean darkMode = false;
 

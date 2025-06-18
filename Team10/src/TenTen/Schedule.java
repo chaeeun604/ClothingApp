@@ -2,7 +2,7 @@ package TenTen;
 
 import java.util.*;
 
-public class Schedule {
+public class Schedule { 
     private Date date;
     private String time;
     private String title;

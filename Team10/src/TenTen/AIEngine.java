@@ -1,7 +1,7 @@
 package TenTen;
 
 import java.awt.Image;
-import java.util.*;
+import java.util.*; 
 
 public class AIEngine {
     public String analyzeImage(Image image) {

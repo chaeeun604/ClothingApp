@@ -2,7 +2,7 @@ package TenTen;
 import java.awt.Image;
 import java.util.*;
 
-public class User {
+public class User { 
     private String userID;
     private String password;
     private String nickname;

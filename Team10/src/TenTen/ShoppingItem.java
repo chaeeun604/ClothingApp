@@ -2,7 +2,7 @@ package TenTen;
 
 import java.awt.Image;
 
-public class ShoppingItem {
+public class ShoppingItem { 
     private Image itemPhoto;
     private String name;
     private String link;

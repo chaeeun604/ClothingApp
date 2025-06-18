@@ -5,7 +5,7 @@ import java.util.*;
 public class Weather {
     private Date date;
     private double temperatureHigh;
-    private double temperatureLow;
+    private double temperatureLow; 
     private String condition;
     private double precipitation;
 

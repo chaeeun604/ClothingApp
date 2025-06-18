@@ -3,7 +3,7 @@ package TenTen;
 import java.util.*;
 
 public class Recommendation {
-    private Date date;
+    private Date date; 
     private Weather weather;
     private Schedule schedule;
     private Outfit selectedOutfit;

@@ -2,7 +2,7 @@ package TenTen;
 
 import java.util.*;
 
-public class Outfit {
+public class Outfit { 
     private ClothingItem top;
     private ClothingItem bottom;
     private List<Style> accessories;
