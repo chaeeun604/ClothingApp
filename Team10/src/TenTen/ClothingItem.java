@@ -7,10 +7,10 @@ public class ClothingItem {
     private String itemID;
     private Image photo;
     private String category;
-    private String color;
-    private String season;
+    private String color; 
+    private String season; 
     private String material;
-    private List<String> tags = new ArrayList<>();
+    private List<String> tags = new ArrayList<>(); 
 
     public ClothingItem(String itemID, String category, String color, String season, String material) {
         this.itemID = itemID;

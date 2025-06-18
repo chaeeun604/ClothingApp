@@ -7,7 +7,7 @@ public class AIEngine {
     public String analyzeImage(Image image) {
         // 간단한 체형 분석 결과 예시
         return "표준 체형";
-    }
+    } 
 
     public void learnUserStyle(User user, List<Style> likedStyles) {
         System.out.println("사용자 " + user + "의 스타일 학습 완료.");

@@ -11,7 +11,7 @@ public class Schedule {
     public Schedule(Date date, String time, String title, String memo) {
         this.date = date;
         this.time = time;
-        this.title = title;
+        this.title = title; 
         this.memo = memo;
     }
 

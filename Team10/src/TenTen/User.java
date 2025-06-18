@@ -12,7 +12,7 @@ public class User {
     private int footSize;
     private Closet closet = new Closet();
     private List<Schedule> schedules = new ArrayList<>();
-
+ 
     public User(String userID, String password, String nickname) {
         this.userID = userID;
         this.password = password;

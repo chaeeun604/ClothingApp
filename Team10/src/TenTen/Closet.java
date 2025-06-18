@@ -6,7 +6,7 @@ public class Closet {
     private List<ClothingItem> items = new ArrayList<>();
 
     public void addItem(ClothingItem item) {
-        items.add(item);
+        items.add(item); 
     }
 
     public void removeItem(String itemID) {

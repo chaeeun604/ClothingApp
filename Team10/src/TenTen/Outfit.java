@@ -10,7 +10,7 @@ public class Outfit {
     public Outfit(ClothingItem top, ClothingItem bottom, List<Style> accessories) {
         this.top = top;
         this.bottom = bottom;
-        this.accessories = accessories;
+        this.accessories = accessories; 
     }
 
     public String getStyleExplanation() {

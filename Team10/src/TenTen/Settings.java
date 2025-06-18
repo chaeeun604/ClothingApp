@@ -15,4 +15,4 @@ public class Settings {
     public void showSettings() {
         System.out.println("알림: " + (notificationEnabled ? "켜짐" : "꺼짐") + ", 다크모드: " + (darkMode ? "사용" : "미사용"));
     }
-}
+} 

@@ -11,7 +11,7 @@ public class CommunityPost {
 
     public CommunityPost(String postID, User writer, String content) {
         this.postID = postID;
-        this.writer = writer;
+        this.writer = writer; 
         this.content = content;
         this.timestamp = new Date();
     }

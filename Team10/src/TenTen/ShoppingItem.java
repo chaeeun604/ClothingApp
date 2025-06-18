@@ -15,7 +15,7 @@ public class ShoppingItem {
         this.price = price;
         this.category = category;
     }
-
+ 
     public void displayItemInfo() {
         System.out.println("상품명: " + name + ", 가격: " + price + "원");
     }

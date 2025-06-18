@@ -12,7 +12,7 @@ public class Recommendation {
     private Outfit feedbackOutfit;
 
     public Outfit generateOutfit(User user, Weather weather, Schedule schedule) {
-        Closet closet = user.getMyCloset();
+        Closet closet = user.getMyCloset(); 
         List<ClothingItem> tops = closet.getItemsByCategory("top");
         List<ClothingItem> bottoms = closet.getItemsByCategory("bottom");
 

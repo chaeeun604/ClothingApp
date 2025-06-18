@@ -7,7 +7,7 @@ public class Comment {
     private User author;
     private String content;
     private Date timestamp;
-
+ 
     public Comment(String commentID, User author, String content) {
         this.commentID = commentID;
         this.author = author;

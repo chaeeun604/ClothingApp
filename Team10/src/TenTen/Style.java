@@ -12,7 +12,7 @@ public class Style {
         this.styleID = styleID;
         this.category = category;
         this.userRating = 0.0;
-    }
+    } 
 
     public void likeStyle() {
         userRating++;
