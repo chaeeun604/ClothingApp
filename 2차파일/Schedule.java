@@ -39,4 +39,12 @@ public class Schedule {
     public boolean matchesDate(Date queryDate) {
         return date.equals(queryDate);
     }
+    
+    public void addSchedule() {
+        System.out.println("일정이 추가되었습니다: " + title);
+    }
+
+    public void deleteSchedule() {
+        System.out.println("일정이 삭제되었습니다: " + title);
+    }
 }

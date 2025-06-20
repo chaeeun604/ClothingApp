@@ -8,11 +8,74 @@ public class MainPage {
         Scanner s = new Scanner(System.in);
         
         // 1. 초기화 및 시작 단계 + 로그인
-        System.out.println("=== TenTen 스타일 추천 시스템에 오신 것을 환영합니다! ===");
+        while(true) {
+        	System.out.print("OOTDay에 오신 것을 환영합니다!\n로그인하시려면 1을, 회원가입하시려면 2를 입력해주세요: ");
+        	String na = s.next();
+        	if(na.equals("1"))	break;
+        	else {
+        		System.out.println("\n=== 회원가입 ===");
+                String userID;
+                // 아이디 중복 확인 루프
+                while(true){
+                    System.out.print("사용할 아이디를 입력하세요: ");
+                    userID = s.next();
+                    if(User.isIDExists(userID)) {
+                        System.out.println("이미 존재하는 아이디입니다. 다른 아이디를 입력해주세요.");
+                    }else if(userID.length() < 4) {
+                        System.out.println("아이디는 4글자 이상이어야 합니다.");
+                    }else{
+                        System.out.println("사용 가능한 아이디입니다.");
+                        break;
+                    }
+                }
+                
+                // 비밀번호 입력
+                String password;
+                while(true) {
+                    System.out.print("비밀번호를 입력하세요 (8글자 이상): ");
+                    password = s.next();
+                    
+                    if(password.length() < 8) {
+                        System.out.println("비밀번호는 8글자 이상이어야 합니다.");
+                    }else{
+                        break;
+                    }
+                }
+                
+                // 비밀번호 확인
+                String confirmPassword;
+                while(true) {
+                    System.out.print("비밀번호를 다시 입력하세요: ");
+                    confirmPassword = s.next();
+                    
+                    if (password.equals(confirmPassword)) {
+                        break;
+                    } else {
+                        System.out.println("비밀번호가 일치하지 않습니다. 다시 입력해주세요.");
+                    }
+                }
+                
+                // 닉네임 입력
+                System.out.print("닉네임을 입력하세요: ");
+                String nickname = s.next();
+                
+                // 회원가입 처리
+                if (User.registerUser(userID, password, nickname)) {
+                    System.out.println("회원가입이 완료되었습니다! 환영합니다, " + nickname + "님!");
+                    System.out.println("이제 로그인하실 수 있습니다.\n");
+                } else {
+                    System.out.println("회원가입 중 오류가 발생했습니다. 다시 시도해주세요.");
+                }
+        		break;
+        	}
+        }
+        
+        
+        System.out.println("=== OOTDay에 오신 것을 환영합니다! ===");
         User user = new User("CinnaPie1234", "12345678", "은서장"); // 회원가입 되어있다고 상정하고 임의로 설정한 아이디비번입니다! 이대로 입력하셔야 넘어가요!
         
         while(true) {
-            System.out.print("로그인하세요.\nID: ");
+            System.out.print("로그인해주세요.\nID: ");
             String inputID = s.next();
             System.out.print("PW: ");
             String inputPassword = s.next();
@@ -21,7 +84,7 @@ public class MainPage {
                 break;
             }
             else {    
-                System.out.println("다시 로그인하세요.");
+                System.out.println("아이디 또는 비밀번호가 일치하지 않습니다. 다시 로그인해주세요.");
             }
         }
         
@@ -274,80 +337,3 @@ public class MainPage {
         s.close();
     }
 }
-
-/*
-package TenTen;
-
-import java.util.Scanner;
-
-public class MainPage {
-
-	public static void main(String[] args) {
-		Scanner s = new Scanner(System.in);
-		
-		// 1. 초기화 및 시작 단계
-		User user = new User("CinnaPie1234", "12345678", "은서장");
-		/*
-		while(true) {
-			System.out.print("로그인하세요.\nID:");
-			String inputID = s.next();
-			System.out.print("PW:");
-			String inputPassword = s.next();
-			if(user.login(inputID, inputPassword)) {
-				System.out.println("로그인 성공. 환영합니다. "+inputID+"님.");
-				break;
-			}
-			else	System.out.println("다시 로그인하세요.");
-		}
-		
-		// 2. 사용자 프로필 및 데이터 설정
-		System.out.println("사용자 프로필 및 데이터를 설정합니다.");
-		System.out.println("사용자의 키와 몸무게, 발사이즈를 입력받습니다.");
-		System.out.print("현재 키 입력: ");
-		double height = s.nextDouble();
-		System.out.print("현재 몸무게 입력: ");
-		double weight = s.nextDouble();
-		System.out.print("현재 발사이즈 입력: ");
-		int footSize = s.nextInt();
-		user.updateProfile(height, weight, footSize);
-		
-		System.out.println("저장된 옷장을 불러옵니다.");
-		Closet closet = new Closet();
-        ClothingItem top = new ClothingItem("top01", "Top", "White", "Spring", "Cotton");
-        ClothingItem bottom = new ClothingItem("bottom01", "Bottom", "Black", "Spring", "Polyester");
-        closet.addItem(top);
-        closet.addItem(bottom);
-        System.out.println(closet.getAllItems()); //이거 출력 해겷해야함
-		
-		
-        // 3. 데이터 수집 및 분석 단계
-		System.out.println("날씨를 불러옵니다.");
-		Weather weather = new Weather(date, 22.0, 16.0, "Sunny", 0.0); //date 수정 필요
-		System.out.println(weather);
-
-		System.out.println("일정을 불러옵니다.");
-		Schedule schedule = new Schedule(date, "09:00", "출근", "회의 있음"); //date 수정 필요
-		System.out.println(schedule);
-		
-		// 4. AI 추천 엔진 활용해 오늘의 의상 추천
-
-		AIEngine aiEngine = new AIEngine();
-        Recommendation recommendation = aiEngine.generateRecommendation(user, weather, schedule);
-        
-        if (recommendation != null && recommendation.generateOutfit(user, weather, schedule) != null) {
-            System.out.println("추천 이유: " + recommendation.getRecommendationReason());
-            Outfit outfit = recommendation.generateOutfit(user, weather, schedule);
-            System.out.println("추천 코디: " + outfit.getStyleExplanation());
-        }else	System.out.println(recommendation.getRecommendationReason());
-        
-        // 5. 사용자 상호작용 (피드백 수집, 학습)
-        List<Style> likedStyles = new ArrayList<>();
-        Style casualStyle = new Style("casual001", "캐주얼", 4.5);
-        likedStyles.add(casualStyle);
-        aiEngine.learnUserStyle(user, likedStyles);
-        
-        
-	}
-
-}
-*/
