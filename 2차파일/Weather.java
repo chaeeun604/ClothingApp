@@ -2,6 +2,7 @@ package TenTen;
 
 import java.util.*;
 
+// 날씨
 public class Weather {
     private Date date;
     private double temperatureHigh;
