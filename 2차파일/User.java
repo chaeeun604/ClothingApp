@@ -2,6 +2,7 @@ package TenTen;
 import java.awt.Image;
 import java.util.*;
 
+// 사용자 객체: 옷장, 설정 보유
 public class User { 
     private String userID;
     private String password;
