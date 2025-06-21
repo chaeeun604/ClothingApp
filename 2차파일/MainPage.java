@@ -6,7 +6,7 @@ public class MainPage {
 
     public static void main(String[] args) {
         Scanner s = new Scanner(System.in);
-        
+        String nowID;
         // 1. 초기화 및 시작 단계 + 로그인
         while(true) {
         	System.out.print("OOTDay에 오신 것을 환영합니다!\n로그인하시려면 1을, 회원가입하시려면 2를 입력해주세요: ");
@@ -81,6 +81,7 @@ public class MainPage {
             String inputPassword = s.next();
             if(user.login(inputID, inputPassword)) {
                 System.out.println("로그인 성공. 환영합니다. " + inputID + "님.");
+                nowID = inputID;
                 break;
             }
             else {    
@@ -333,7 +334,7 @@ public class MainPage {
         System.out.println("\n감사합니다! 좋은 하루 되세요!");
         
         // 로그아웃
-        user.logout();
+        user.logout(nowID);
         s.close();
     }
 }

@@ -84,8 +84,8 @@ public class User {
         }
     }*/
 
-    public void logout() { //로그아웃
-        System.out.println(nickname + " has logged out.");
+    public void logout(String nowID) { //로그아웃
+        System.out.println(nowID + " has logged out.");
     }
 
     public void updateProfile(double height, double weight, int footSize) { //프로필 변경 적용
