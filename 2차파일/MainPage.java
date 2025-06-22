@@ -105,10 +105,10 @@ public class MainPage {
         Closet closet = user.getMyCloset();
         
         // 샘플 의류 아이템 추가 (예시일 뿐입니다! 옷 추가 기능은 여기엔 아직 없어요..)
-        ClothingItem top1 = new ClothingItem("top01", "Top", "White", "Spring", "Cotton");
-        ClothingItem bottom1 = new ClothingItem("bottom01", "Bottom", "Black", "Spring", "Polyester");
-        ClothingItem top2 = new ClothingItem("top02", "Top", "Blue", "Summer", "Linen");
-        ClothingItem bottom2 = new ClothingItem("bottom02", "Bottom", "Beige", "Summer", "Cotton");
+        ClothingItem top1 = new ClothingItem("topno1", "Top", "White", "Spring", "Cotton");
+        ClothingItem bottom1 = new ClothingItem("bottomno1", "Bottom", "Black", "Spring", "Polyester");
+        ClothingItem top2 = new ClothingItem("topno2", "Top", "Blue", "Summer", "Linen");
+        ClothingItem bottom2 = new ClothingItem("bottomno2", "Bottom", "Beige", "Summer", "Cotton");
         
         // 나중에 태그 검색할 때 쓸 거!
         top1.editTag("캐주얼");
@@ -123,6 +123,46 @@ public class MainPage {
         closet.addItem(bottom2);
         
         System.out.println("옷장에 총 " + closet.getAllItems().size() + "개의 아이템이 있습니다.");
+        
+        //옷장에 옷 추가
+        System.out.print("옷장에 새 옷을 추가하시겠습니까? (y/n): ");
+        String yesno = s.next();
+        if(yesno.equals("y")) {
+        	int clNum=0;
+        	ClothingItem cl3;
+        	while(true) {
+        		System.out.print("등록하려는 옷이 상의면 1, 하의면 2를 입력해주세요: ");
+            	clNum = s.nextInt();
+            	s.nextLine();
+            	if(clNum == 1) {
+            		cl3 = new ClothingItem("topno3", "Top");
+            		break;
+            	}else if(clNum == 2) {
+            		cl3 = new ClothingItem("bottomno3", "Bottom");
+            		break;
+            	}else	System.out.println("잘못된 입력");
+        	}
+    		System.out.print("등록하려는 옷의 색깔을 영어로 입력해주세요(ex.White): ");
+    		String nowColor = s.next();
+    		cl3.setColor(nowColor);
+
+    		System.out.print("등록하려는 옷의 착용 계절 영어로 입력해주세요(ex.Spring): ");
+    		String nowSeason = s.next();
+    		cl3.setSeason(nowSeason);
+    		
+    		System.out.print("등록하려는 옷의 재질을 영어로 입력해주세요(ex.Cotton): ");
+    		String nowMaterial = s.next();
+    		cl3.setMaterial(nowMaterial);
+    		
+    		while(true) {
+    			System.out.print("옷에 등록할 태그의 이름을 입력해주세요.(ex.캐주얼) (없다면 0 입력): ");
+    			String tagCl3 = s.next();
+    			if(tagCl3.equals("0"))	break;
+    			else	cl3.editTag(tagCl3);
+    		}
+    		
+    		closet.addItem(cl3);
+        }
         
         
         // 3. 데이터 수집 및 분석 단계
@@ -141,6 +181,7 @@ public class MainPage {
         user.addSchedule(todaySchedule);
         System.out.println("일정: " + todaySchedule.getTitle() + " (" + todaySchedule.getTime() + ")");
         System.out.println("메모: " + todaySchedule.getMemo());
+        
         
         // 4. AI 추천 엔진 활용해 오늘의 의상 추천
         System.out.println("\n=== AI 의상 추천 시스템 ===");
@@ -182,6 +223,7 @@ public class MainPage {
         s.nextLine(); // 버퍼 클리어 (엔터용)
         
         String feedbackMessage = "";
+        boolean feedbackBad=false;
         switch(satisfaction) {
             case 1:
                 feedbackMessage = "매우 만족 - 완벽한 추천이었습니다!";
@@ -194,15 +236,22 @@ public class MainPage {
                 break;
             case 4:
                 feedbackMessage = "불만족 - 개선이 필요합니다.";
+                feedbackBad = true;
                 break;
             case 5:
                 feedbackMessage = "매우 불만족 - 취향에 맞지 않습니다.";
+                feedbackBad = true;
                 break;
             default:
                 feedbackMessage = "피드백을 주셔서 감사합니다.";
         }
         
-        if (recommendation != null) {
+        if(recommendation != null) {
+        	if(feedbackBad == true) {
+            	System.out.print("불만족/매우 불만족을 선택하신 이유에 대해서 알려주세요. 참고하여 개선됩니다! : ");
+            	String reasonMessage = s.nextLine();
+            	feedbackMessage = feedbackMessage.concat("\n이유 : "+reasonMessage);
+            }
             recommendation.addFeedback(user, feedbackMessage);
             System.out.println("피드백이 등록되었습니다: " + feedbackMessage);
         }
@@ -215,6 +264,16 @@ public class MainPage {
         if (shareChoice.equalsIgnoreCase("y")) {
             System.out.print("게시글 내용을 입력하세요: ");
             String postContent = s.nextLine();
+            
+            System.out.print("사진을 첨부하시겠습니까?(y/n): ");
+            String yesno2 = s.next();
+            if(yesno2.equals("y")) {
+            	System.out.print("이미지 불러오는 중...\n\n몇 번째 사진을 첨부하시겠습니까?(n 입력): ");
+            	int picNum = s.nextInt();
+            	s.nextLine();
+            	System.out.println(picNum+"번째 사진이 첨부되었습니다!");
+            	postContent = postContent.concat("\n(첨부파일 : "+picNum+"번째 사진 이미지)");
+            }
             
             CommunityPost post = new CommunityPost("post001", user, "오늘의 코디: " + postContent);
             post.showPost();

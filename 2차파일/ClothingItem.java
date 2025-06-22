@@ -22,6 +22,10 @@ class ClothingItem {
         this.season = season;
         this.material = material;
     }
+    public ClothingItem(String itemID, String category) {
+        this.itemID = itemID;
+        this.category = category;
+    }
 
     // 태그 추가
     public void editTag(String tag) {
@@ -30,7 +34,16 @@ class ClothingItem {
 
     // 색상 변경
     public void setColor(String color) {
+    	this.name = category + "/" + color;
         this.color = color;
+    }
+    // 계절 변경
+    public void setSeason(String season) {
+        this.season = season;
+    }
+    // 색상 변경
+    public void setMaterial(String material) {
+        this.material = material;
     }
 
     public List<String> getTags() { return tags; }
